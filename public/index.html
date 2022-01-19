@@ -4,7 +4,61 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+     <link rel="shortcut icon" type="image/png" href="./src/assets/pym-logo-small.png"/>
+     <style>
+      .dropdown-input, .dropdown-item {
+        background-color: white!important;
+        font-family: 'Gilroy'!important;
+        font-size: 16px!important;
+      }
+      .dropdown .dropdown-content {
+        min-width: 264px!important;
+        max-width: 264px!important;
+      }
+      .dropdown .dropdown-content .dropdown-item[data-v-6149e08a]:hover {
+        background-color: #F38E69!important;
+        color: white!important;
+        font-weight: bold!important;
+      }
+      .swal2-title, .swal2-content {
+        color: black!important;
+        font-family: 'Gilroy'!important;
+      }
+      .swal2-title {
+        font-size: 24px!important;
+        display: block!important;
+      }
+      .swal2-title span {
+        color: #F38E69!important;
+      }
+      .swal2-styled.swal2-cancel, .swal2-styled.swal2-confirm {
+        font-family: 'Gilroy'!important;
+      }
+
+      .multiselect {
+        width: 60%!important;
+      }
+      .multiselect__option--highlight, .multiselect__option--highlight::after {
+        background: #F38E69!important;
+        font-weight: bold!important;
+      }
+      .multiselect__tags {
+        border: none!important;
+      }
+      .multiselect__tags {
+        min-height: 31px!important;
+        padding: 0px 40px 0px 9px!important;
+      }
+      .multiselect__select {
+        height: 34px!important;
+      }
+      .multiselect__input, .multiselect__single {
+        margin-bottom: 0px!important;
+        height: 31px!important;
+        display: flex!important;
+        align-items: center!important;
+      }
+    </style>
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
