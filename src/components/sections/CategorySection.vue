@@ -54,6 +54,6 @@ export default {
 }
 .item-cat {
   width: 46%;
-  padding: 0 1rem;
+  padding: 0;
 }
 </style>

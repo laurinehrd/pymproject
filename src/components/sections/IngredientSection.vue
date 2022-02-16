@@ -53,6 +53,5 @@ export default {
 }
 .item-ing {
   width: 46%;
-  padding: 0 1rem;
 }
 </style>

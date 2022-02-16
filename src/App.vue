@@ -86,8 +86,8 @@ h1 {
 }
 .main {
   width: 75%;
-  padding: 2rem;
-  height: 90vh;
+  padding: 1rem;
+  height: 100vh;
   overflow: scroll;
 }
 </style>
