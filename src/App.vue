@@ -21,7 +21,7 @@ export default {
   name: 'App',
   methods: {
     goHome () {
-      this.$router.push('/home')
+      this.$router.push('/')
     }
   }
 }
