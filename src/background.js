@@ -15,6 +15,7 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 1200,
     height: 700,
+    icon: `/Users/laurineherard/Desktop/Pymproject/pym/public/assets/pym-logo-small.png`,
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
