@@ -25,8 +25,12 @@ export default {
   name: 'newIngredient',
   async mounted () {
     fetch('http://localhost:8741/api/categories').then((response) => {
-      this.categories = response.json().then(json => {
+      response.json()
+      .then(json => {
         this.categories = json['hydra:member']
+      })
+      .catch(e => {
+        console.log(e)
       })
     })
   },

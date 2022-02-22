@@ -19,8 +19,12 @@ export default {
   },
   async mounted () {
     fetch('http://localhost:8741/api/categories').then((response) => {
-      this.categories = response.json().then(json => {
+      response.json()
+      .then(json => {
         this.categories = json['hydra:member']
+      })
+      .catch(e => {
+        console.log(e)
       })
     })
   },
@@ -39,7 +43,6 @@ export default {
     },
     updateCategory (newcat) {
       const i = this.categories.findIndex(cat => cat.id === newcat.id)
-      // this.categories[i] = newcat
       Vue.set(this.categories, i, newcat)
     }
   }

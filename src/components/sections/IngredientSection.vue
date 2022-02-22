@@ -19,8 +19,12 @@ export default {
   },
   async mounted () {
     fetch('http://localhost:8741/api/ingredients').then((response) => {
-      this.ingredients = response.json().then(json => {
+      response.json()
+      .then(json => {
         this.ingredients = json['hydra:member']
+      })
+      .catch(e => {
+        console.log(e)
       })
     })
   },

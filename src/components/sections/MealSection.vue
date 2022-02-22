@@ -16,8 +16,12 @@ export default {
   },
   async mounted () {
     fetch('http://localhost:8741/api/meals').then((response) => {
-      this.meals = response.json().then(json => {
+      this.meals = response.json()
+      .then(json => {
         this.meals = json['hydra:member']
+      })
+      .catch(e => {
+        console.log(e)
       })
     })
   },

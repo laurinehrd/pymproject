@@ -37,13 +37,6 @@ export default {
   props: {
     ingredient: Object
   },
-  async mounted () {
-    fetch('http://localhost:8741/api/categories').then((response) => {
-      this.categories = response.json().then(json => {
-        this.categories = json['hydra:member']
-      })
-    })
-  },
   data () {
     return {
       edit: false,
@@ -54,7 +47,16 @@ export default {
   },
   methods: {
     iconUpdateIng () {
-      this.edit = true
+      fetch('http://localhost:8741/api/categories').then((response) => {
+      response.json()
+      .then(json => {
+        this.categories = json['hydra:member']
+        this.edit = true
+      })
+      .catch(e => {
+        console.log(e)
+      })
+    })
     },
     cancelUpdate () {
       this.edit = false

@@ -40,8 +40,12 @@ export default {
   },
   async mounted () {
     fetch('http://localhost:8741/api/intermediaires?meal.id=' + this.meal.id).then((response) => {
-      this.intermediaires = response.json().then(json => {
+      this.intermediaires = response.json()
+      .then(json => {
         this.intermediaires = json['hydra:member']
+      })
+      .catch(e => {
+        console.log(e)
       })
     })
   },

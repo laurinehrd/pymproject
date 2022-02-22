@@ -60,18 +60,25 @@ export default {
     fetch('http://localhost:8741/api/meals/' + this.id).then((response) => {
       response.json().then(json => {
         this.namemeal = json['name']
-        this.listIngredients = json['intermediaires'].map(i => {
+        this.listIngredients = json['intermediaires'].map(i => { // map = mettre en forme des table
           return {
             currentIngredient: i['ingredients'],
             quantity: {number: i['quantity'], unit: i['unity']['@id']}
           }
         })
       })
+      .catch(e => {
+        console.log(e)
+      })
     })
     // to display ingredient's list in the dropdown
     fetch('http://localhost:8741/api/ingredients').then((response) => {
-      response.json().then(json => {
+      response.json()
+      .then(json => {
         this.ingredients = json['hydra:member']
+      })
+      .catch(e => {
+        console.log(e)
       })
     })
   },
