@@ -6,11 +6,6 @@
             <p class="title">Nom du plat</p>
             <input class="bg" type="text" v-model="namemeal">
         </div>
-        <!-- <div class="button-wrapper">
-            <p class="title">Choisir une image</p>
-            <div class="label">Importer</div>
-            <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File">
-        </div> -->
     </div>
     <div class="section-ing">
         <p class="title">Les ingrédients du plat</p>
@@ -61,15 +56,19 @@ export default {
   components: { Dropdown, Quantity },
   async mounted () {
     fetch('http://localhost:8741/api/ingredients').then((response) => {
-      response.json().then(json => {
+      response.json()
+      .then(json => {
         this.ingredients = json['hydra:member']
+      })
+      .catch(e => {
+        console.log(e)
       })
     })
   },
   data () {
     return {
-      ingredients: [],
-      listIngredients: [
+      ingredients: [], // alimente liste déroulante des ing
+      listIngredients: [ // table intermediaires
         {currentIngredient: {}, quantity: {number: 2, unit: null}}
       ],
       namemeal: '',
@@ -89,9 +88,9 @@ export default {
     addMeal () {
       axios.post('http://localhost:8741/api/meals', {
         name: this.namemeal,
-        intermediaires: this.listIngredients.map(i => {
+        intermediaires: this.listIngredients.map(i => { // map = remise en forme
           return {
-            ingredients: i.currentIngredient['@id'],
+            ingredients: i.currentIngredient['@id'], // i reprend toutes les valeurs, prend élément du table 1 par 1 - @id = @=uri
             quantity: i.quantity.number,
             unity: i.quantity.unit
           }
